@@ -57,8 +57,7 @@ const foundUser = (deviceId) => fetch(FOUND_USER, deviceId)
 const foundAd = (age, who, country, city, phone_lang) => {
     const FOUND_AD = `
         SELECT
-            campaign_id,
-            advertisement_link
+            *
         FROM
             advertisements
         WHERE

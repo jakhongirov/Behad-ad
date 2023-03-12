@@ -34,6 +34,7 @@ module.exports = {
                 }
             } else {
                 const chooseAllAd = await model.chooseAllAd()
+                console.log(chooseAllAd?.campaign_id);
                 await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
 
                 return res.json({
