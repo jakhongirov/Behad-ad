@@ -68,7 +68,7 @@ const foundAd = (age, who, country, city, phone_lang) => {
             (  phone_lang ilike '%${phone_lang}%' or phone_lang = 'all' );
     `;
 
-    return fetchALL(FOUND_AD)
+    return fetch(FOUND_AD)
 }
 const chooseAllAd = () => fetch(CHOOSE_ALL)
 const addAction = (app_id, adId, campaign_id, user_id) => fetch(ADD_ACTION_TEMP, app_id, adId, campaign_id, user_id)
