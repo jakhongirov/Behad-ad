@@ -68,7 +68,7 @@ const UPDATE_APP_STATUS = `
             app_side
         SET
             category_id = $2,
-            app_status = $3,
+            app_status = $3
         WHERE
             app_id = $1
         RETURNING *;

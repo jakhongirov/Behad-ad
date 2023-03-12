@@ -22,7 +22,7 @@ CREATE TABLE apps_side (
     app_link text not null,
     app_image text not null,
     app_image_name text not null,
-    category_id int REFERENCES app_categories(category_id),
+    category_id int,
     developer_id int not null REFERENCES users_ads(user_id) ON DELETE CASCADE,
     app_status BOOLEAN DEFAULT false,
     banner_id text [],
