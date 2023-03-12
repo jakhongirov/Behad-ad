@@ -42,7 +42,7 @@ const ADD_ACTION_TEMP = `
 
 const FOUND_APP = `
         SELECT 
-           app_id
+           *
         FROM   
             apps_side
         WHERE
