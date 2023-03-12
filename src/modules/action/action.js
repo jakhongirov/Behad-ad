@@ -163,116 +163,31 @@ module.exports = {
 
     POST: async (req, res) => {
         try {
-            const { ads } = req.params
+            const { app_ads_id, action, campaign_id, user_id } = req.body
+            const app = await model.foundApp(app_ads_id)
+            const ad = await model.foundAds(campaign_id)
+            let price = 0;
 
-            if (ads == 'banner') {
-                const { app_ads_id, action, campaign_id, user_id } = req.body
-                const app = await model.foundAppBN(app_ads_id)
-                const ad = await model.foundAds(campaign_id)
-                let price = 0;
+            if (action == 2 && ad.type_of_campaign.toLowerCase() == 'view') {
+                return price += ad.action_price
+            } else if (action == 3 && ad.type_of_campaign.toLowerCase() == 'click') {
+                return price += ad.action_price
+            } else if (action == 4 && ad.type_of_campaign.toLowerCase() == 'fullView') {
+                return price += ad.action_price
+            }
 
-                if (action == 2 && ad.type_of_campaign.toLowerCase() == 'view') {
-                    return price += ad.action_price
-                } else if (action == 3 && ad.type_of_campaign.toLowerCase() == 'click') {
-                    return price += ad.action_price
-                } else if (action == 4 && ad.type_of_campaign.toLowerCase() == 'fullView') {
-                    return price += ad.action_price
-                }
+            const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, user_id, price)
 
-                const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, user_id, price)
-
-                if (addActionTemp) {
-                    return res.json({
-                        status: 200,
-                        message: "Success"
-                    })
-                } else {
-                    return res.json({
-                        status: 400,
-                        message: "Bad request"
-                    })
-                }
-            } else if (ads == 'inters') {
-                const { app_ads_id, action, campaign_id, user_id } = req.body
-                const app = await model.foundAppIN(app_ads_id)
-                const ad = await model.foundAds(campaign_id)
-                let price = 0;
-
-                if (action == 2 && ad.type_of_campaign.toLowerCase() == 'view') {
-                    return price += ad.action_price
-                } else if (action == 3 && ad.type_of_campaign.toLowerCase() == 'click') {
-                    return price += ad.action_price
-                } else if (action == 4 && ad.type_of_campaign.toLowerCase() == 'fullView') {
-                    return price += ad.action_price
-                }
-
-                const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, user_id, price)
-
-                if (addActionTemp) {
-                    return res.json({
-                        status: 200,
-                        message: "Success"
-                    })
-                } else {
-                    return res.json({
-                        status: 400,
-                        message: "Bad request"
-                    })
-                }
-            } else if (ads == 'rewarded') {
-                const { app_ads_id, action, campaign_id, user_id } = req.body
-                const app = await model.foundAppRD(app_ads_id)
-                const ad = await model.foundAds(campaign_id)
-                let price = 0;
-
-                if (action == 2 && ad.type_of_campaign.toLowerCase() == 'view') {
-                    return price += ad.action_price
-                } else if (action == 3 && ad.type_of_campaign.toLowerCase() == 'click') {
-                    return price += ad.action_price
-                } else if (action == 4 && ad.type_of_campaign.toLowerCase() == 'fullView') {
-                    return price += ad.action_price
-                }
-
-                const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, user_id, price)
-
-                if (addActionTemp) {
-                    return res.json({
-                        status: 200,
-                        message: "Success"
-                    })
-                } else {
-                    return res.json({
-                        status: 400,
-                        message: "Bad request"
-                    })
-                }
-            } else if (ads == 'nativeBanner') {
-                const { app_ads_id, action, campaign_id } = req.body
-                const app = await model.foundAppNB(app_ads_id)
-                const ad = await model.foundAds(campaign_id)
-                let price = 0;
-
-                if (action == 2 && ad.type_of_campaign.toLowerCase() == 'view') {
-                    return price += ad.action_price
-                } else if (action == 3 && ad.type_of_campaign.toLowerCase() == 'click') {
-                    return price += ad.action_price
-                } else if (action == 4 && ad.type_of_campaign.toLowerCase() == 'fullView') {
-                    return price += ad.action_price
-                }
-
-                const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, app.developer_id, price)
-
-                if (addActionTemp) {
-                    return res.json({
-                        status: 200,
-                        message: "Success"
-                    })
-                } else {
-                    return res.json({
-                        status: 400,
-                        message: "Bad request"
-                    })
-                }
+            if (addActionTemp) {
+                return res.json({
+                    status: 200,
+                    message: "Success"
+                })
+            } else {
+                return res.json({
+                    status: 400,
+                    message: "Bad request"
+                })
             }
 
         } catch (error) {

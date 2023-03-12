@@ -143,40 +143,16 @@ const ADD_ACTION_TEMP = `
     ) RETURNING *;
 `;
 
-const FOUND_APP_BN = `
-        SELECT
-            *
-        FROM
-            apps_side
-        WHERE
-            $1 = ANY (banner_id);
-`;
-
-const FOUND_APP_IN = `
-        SELECT
-            *
-        FROM
-            apps_side
-        WHERE
-            $1 = ANY (inters_id);
-`;
-
-const FOUND_APP_RD = `
-        SELECT
-            *
-        FROM
-            apps_side
-        WHERE
-            $1 = ANY (rewarded_id);
-`;
-
-const FOUND_APP_NB = `
-        SELECT
-            *
-        FROM
-            apps_side
-        WHERE
-            $1 = ANY (rewarded_id);
+const FOUND_APP = `
+    SELECT 
+        *
+    FROM   
+        apps_side
+    WHERE
+        $1 = ANY (banner_id) or
+        $1 = ANY (inters_id) or
+        $1 = ANY (rewarded_id) or 
+        $1 = ANY (native_banner_id);
 `;
 
 const FOUND_ADS = `
@@ -343,10 +319,7 @@ const actionResultByOffset = (offset) => {
 }
 const actionResult = () => fetchALL(ACTION_RESULT)
 const addActionTemp = (app_id, app_ads_id, action, campaign_id, user_id, price) => fetch(ADD_ACTION_TEMP, app_id, app_ads_id, action, campaign_id, user_id, price)
-const foundAppBN = (app_ads_id) => fetch(FOUND_APP_BN, app_ads_id)
-const foundAppIN = (app_ads_id) => fetch(FOUND_APP_IN, app_ads_id)
-const foundAppRD = (app_ads_id) => fetch(FOUND_APP_RD, app_ads_id)
-const foundAppNB = (app_ads_id) => fetch(FOUND_APP_NB, app_ads_id)
+const foundApp = (app_ads_id) => fetch(FOUND_APP, app_ads_id)
 const foundAds = (campaign_id) => fetch(FOUND_ADS, campaign_id)
 const actionResultCampaign = () => fetchALL(ACTION_RESULT_CAMPAIGN)
 const updateAdsCount = (id, view, click, fullView) => fetch(UPDATE_ADS_COUNT, id, view, click, fullView)
@@ -372,10 +345,7 @@ module.exports = {
     actionResultByOffset,
     actionResult,
     addActionTemp,
-    foundAppBN,
-    foundAppIN,
-    foundAppRD,
-    foundAppNB,
+    foundApp,
     foundAds,
     actionResultCampaign,
     updateAdsCount,
