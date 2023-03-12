@@ -36,7 +36,7 @@ router
     .delete('/deleteAdvertisement', advertisement.DELETE)
 
     .get('/action', action.GET)
-    .get('/addAction', action.POST)
+    .post('/addAction', action.POST)
 
     .get('/filterAd', filterAd.GET);
 
