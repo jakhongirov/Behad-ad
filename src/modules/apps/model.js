@@ -65,7 +65,7 @@ const UPDATE_APP = `
 
 const UPDATE_APP_STATUS = `
         UPDATE
-            app_side
+            apps_side
         SET
             category_id = $2,
             app_status = $3
