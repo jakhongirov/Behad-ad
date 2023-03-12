@@ -15,7 +15,7 @@ module.exports = {
                     return res.json({
                         status: 200,
                         message: "Success",
-                        data: foundAd.advertisement_link
+                        data: foundAd
                     })
                 } else {
                     const chooseAllAd = await model.chooseAllAd()
@@ -24,7 +24,7 @@ module.exports = {
                     return res.json({
                         status: 200,
                         message: "Success",
-                        data: chooseAllAd.advertisement_link
+                        data: chooseAllAd
                     })
                 }
             } else {
@@ -34,7 +34,7 @@ module.exports = {
                 return res.json({
                     status: 200,
                     message: "Success",
-                    data: chooseAllAd.advertisement_link
+                    data: chooseAllAd
                 })
             }
 
