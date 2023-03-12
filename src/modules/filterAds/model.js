@@ -16,6 +16,7 @@ const CHOOSE_ALL = `
     FROM
         advertisements
     WHERE  
+        advertisement_type = $1 and
         gender = 'all' and 
         max_age = 100 and min_age = 0 and country = 'all' and city = 'all' and
         interest = 'all' and phone_lang= 'all';
@@ -54,7 +55,7 @@ const FOUND_APP = `
 `;
 
 const foundUser = (deviceId) => fetch(FOUND_USER, deviceId)
-const foundAd = (age, who, country, city, phone_lang) => {
+const foundAd = (age, who, country, city, phone_lang, type) => {
     const FOUND_AD = `
         SELECT
             campaign_id,
@@ -64,6 +65,7 @@ const foundAd = (age, who, country, city, phone_lang) => {
         FROM
             advertisements
         WHERE
+            advertisement_type = '${type}' and
             ( gender ilike '%${who}%' or gender = 'all' ) and 
             ( max_age >= ${age} or ${age} >= min_age ) and
             ( country ilike '%${country}%' or country = 'all' ) and
@@ -73,7 +75,7 @@ const foundAd = (age, who, country, city, phone_lang) => {
 
     return fetch(FOUND_AD)
 }
-const chooseAllAd = () => fetch(CHOOSE_ALL)
+const chooseAllAd = (type) => fetch(CHOOSE_ALL, type)
 const addAction = (app_id, adId, campaign_id, user_id) => fetch(ADD_ACTION_TEMP, app_id, adId, campaign_id, user_id)
 const foundApp = (adId) => fetch(FOUND_APP, adId)
 
