@@ -58,7 +58,9 @@ const foundAd = (age, who, country, city, phone_lang) => {
     const FOUND_AD = `
         SELECT
             campaign_id,
-            advertisement_link 
+            advertisement_link,
+            advertisement_title,
+            advertisement_description
         FROM
             advertisements
         WHERE
