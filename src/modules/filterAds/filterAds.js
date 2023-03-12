@@ -19,8 +19,27 @@ module.exports = {
                     })
                 } else {
                     const chooseAllAd = await model.chooseAllAd(type)
-                    console.log(chooseAllAd?.campaign_id);
 
+                    if (chooseAllAd) {
+                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
+
+                        return res.json({
+                            status: 200,
+                            message: "Success",
+                            data: chooseAllAd
+                        })
+                    } else {
+                        return res.json({
+                            status: 404,
+                            message: "Not found"
+                        })
+                    }
+
+                }
+            } else {
+                const chooseAllAd = await model.chooseAllAd(type)
+
+                if (chooseAllAd) {
                     await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
 
                     return res.json({
@@ -28,17 +47,12 @@ module.exports = {
                         message: "Success",
                         data: chooseAllAd
                     })
+                } else {
+                    return res.json({
+                        status: 404,
+                        message: "Not found"
+                    })
                 }
-            } else {
-                const chooseAllAd = await model.chooseAllAd(type)
-                console.log(chooseAllAd?.campaign_id);
-                await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
-
-                return res.json({
-                    status: 200,
-                    message: "Success",
-                    data: chooseAllAd
-                })
             }
 
         } catch (error) {
