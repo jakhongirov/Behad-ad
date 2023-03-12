@@ -11,6 +11,7 @@ const FOUND_USER = `
 
 const CHOOSE_ALL = `
     SELECT
+        campaign_id,
         advertisement_link 
     FROM
         advertisements
@@ -19,10 +20,43 @@ const CHOOSE_ALL = `
         max_age = 100 and min_age = 0 and country = 'all' and city = 'all';
 `;
 
+const ADD_ACTION_TEMP = `
+    INSERT INTO
+        action_temp (
+            app_id,
+            app_ads_id,
+            campaign_id,
+            actions,
+            user_id,
+            action_price
+        )
+    VALUES (
+        $1,
+        $2,
+        $3,
+        1,
+        $5,
+        0
+    ) RETURNING *;
+`;
+
+const FOUND_APP = `
+        SELECT 
+           app_id
+        FROM   
+            apps_side
+        WHERE
+             $1 = ANY (banner_id) or
+             $1 = ANY (inters_id) or
+             $1 = ANY (rewarded_id) or
+             $1 = ANY (native_banner_id);
+`;
+
 const foundUser = (deviceId) => fetch(FOUND_USER, deviceId)
 const foundAd = (age, who, country, city, phone_lang) => {
     const FOUND_AD = `
         SELECT
+            campaign_id,
             advertisement_link
         FROM
             advertisements
@@ -37,9 +71,13 @@ const foundAd = (age, who, country, city, phone_lang) => {
     return fetchALL(FOUND_AD)
 }
 const chooseAllAd = () => fetch(CHOOSE_ALL)
+const addAction = (app_id, adId, campaign_id, user_id) => fetch(ADD_ACTION_TEMP, app_id, adId, campaign_id, user_id)
+const foundApp = (adId) => fetch(FOUND_APP, adId)
 
 module.exports = {
     foundUser,
     foundAd,
-    chooseAllAd
+    chooseAllAd,
+    addAction,
+    foundApp
 }
