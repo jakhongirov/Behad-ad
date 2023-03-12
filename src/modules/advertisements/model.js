@@ -65,7 +65,7 @@ const ADD_ADVERTISEMENT = `
             $18,
             $19,
             $20,
-            21
+            $21
     ) RETURNING *;
 `;
 
