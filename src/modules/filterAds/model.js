@@ -35,7 +35,7 @@ const ADD_ACTION_TEMP = `
         $2,
         $3,
         1,
-        $5,
+        $4,
         0
     ) RETURNING *;
 `;
