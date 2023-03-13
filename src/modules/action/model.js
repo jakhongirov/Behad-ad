@@ -128,8 +128,8 @@ const ADD_ACTION_TEMP = `
         action_temp (
             app_id,
             app_ads_id,
-            campaign_id,
             actions,
+            campaign_id,
             user_id,
             action_price
         )
