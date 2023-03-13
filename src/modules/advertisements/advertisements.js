@@ -129,6 +129,7 @@ module.exports = {
                 click_per_user,
                 advertisement_type,
                 advertisement_click_link,
+                advertisement_media_type,
                 advertising_id
             } = req.body
 
@@ -157,6 +158,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -195,6 +197,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -233,6 +236,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -273,6 +277,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -312,6 +317,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -360,6 +366,7 @@ module.exports = {
                 click_per_user,
                 advertisement_type,
                 advertisement_click_link,
+                advertisement_media_type,
                 advertising_id
             } = req.body
 
@@ -388,6 +395,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -427,6 +435,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -466,6 +475,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -507,6 +517,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 
@@ -547,6 +558,7 @@ module.exports = {
                     click_per_user,
                     advertisement_type,
                     advertisement_click_link,
+                    advertisement_media_type,
                     advertising_id
                 )
 

@@ -12,7 +12,8 @@ const FOUND_USER = `
 const CHOOSE_ALL = `
     SELECT
         campaign_id,
-        advertisement_link 
+        advertisement_media_type,
+        advertisement_link
     FROM
         advertisements
     WHERE  
@@ -59,6 +60,7 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
     const FOUND_AD = `
         SELECT
             campaign_id,
+            advertisement_media_type,
             advertisement_link,
             advertisement_title,
             advertisement_description
