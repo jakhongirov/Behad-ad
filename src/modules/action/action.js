@@ -168,8 +168,6 @@ module.exports = {
             const ad = await model.foundAds(campaign_id)
             let price = 0;
 
-            console.log(ad);
-
             if (action == 2 && ad?.type_of_campaign.toLowerCase() == 'view') {
                 return price += ad?.action_price
             } else if (action == 3 && ad?.type_of_campaign.toLowerCase() == 'click') {
@@ -178,7 +176,7 @@ module.exports = {
                 return price += ad?.action_price
             }
 
-            const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, user_id, price)
+            const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, ad?.campaign_id, user_id, price)
 
             if (addActionTemp) {
                 return res.json({
