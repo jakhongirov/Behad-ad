@@ -59,6 +59,7 @@ CREATE TABLE advertisements (
     advertisement_ctr json [],
     click_per_user int not null,
     advertisement_type text not null,
+    advertisement_media_type text not null,
     advertising_id int not null REFERENCES users_ads(user_id) ON DELETE CASCADE,
     advertisement_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
