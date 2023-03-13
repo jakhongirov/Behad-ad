@@ -168,15 +168,15 @@ module.exports = {
             const ad = await model.foundAds(campaign_id)
             let price = 0;
 
-            if (action == 2 && ad?.type_of_campaign.toLowerCase() == 'view') {
-                return price += ad?.action_price
-            } else if (action == 3 && ad?.type_of_campaign.toLowerCase() == 'click') {
-                return price += ad?.action_price
-            } else if (action == 4 && ad?.type_of_campaign.toLowerCase() == 'fullView') {
-                return price += ad?.action_price
+            if (action == 2 && ad.type_of_campaign.toLowerCase() === 'view') {
+                price = price + ad.action_price
+            } else if (action == 3 && ad.type_of_campaign.toLowerCase() === 'click') {
+                price = price + ad.action_price
+            } else if (action == 4 && ad.type_of_campaign.toLowerCase() === 'fullView') {
+                price = price + ad.action_price
             }
 
-            const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, ad?.campaign_id, user_id, price)
+            const addActionTemp = await model.addActionTemp(app.app_id, app_ads_id, action, campaign_id, user_id, price)
 
             if (addActionTemp) {
                 return res.json({
