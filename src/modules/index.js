@@ -31,8 +31,8 @@ router
     .delete('deleteApp', apps.DELETE_APP)
 
     .get('/advertisements', advertisement.GET)
-    .post('/addAdvertisement', FileUpload.single('media'), advertisement.POST)
-    .put('./editAdvertisement', FileUpload.single('media'), advertisement.PUT)
+    .post('/addAdvertisement', FileUpload.single('photo'), advertisement.POST)
+    .put('./editAdvertisement', FileUpload.single('photo'), advertisement.PUT)
     .delete('/deleteAdvertisement', advertisement.DELETE)
 
     .get('/action', action.GET)

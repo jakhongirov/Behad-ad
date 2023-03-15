@@ -13,7 +13,10 @@ const CHOOSE_ALL = `
     SELECT
         campaign_id,
         advertisement_media_type,
-        advertisement_link
+        advertisement_link,
+        advertisement_media_link,
+        advertisement_title,
+        advertisement_description
     FROM
         advertisements
     WHERE  
@@ -62,6 +65,7 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
             campaign_id,
             advertisement_media_type,
             advertisement_link,
+            advertisement_media_link,
             advertisement_title,
             advertisement_description
         FROM
