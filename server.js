@@ -6,7 +6,7 @@ const app = express();
 const { PORT } = require("./src/config");
 const router = require("./src/modules");
 
-app.use(cors({ origin: "*" }))
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/public', express.static(path.resolve(__dirname, 'public')))

@@ -98,7 +98,7 @@ const userByPhone = (phone, offset, sort) => {
 }
 const getUsers = (offset, sort) => {
     const USERS = `
-        SELCET 
+        SELECT 
             *, to_char(user_create_date at time zone 'Asia/Tashkent', 'HH24:MM/MM.DD.YYYY')
         FROM
             users_ads
