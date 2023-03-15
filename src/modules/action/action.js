@@ -6,7 +6,7 @@ module.exports = {
         try {
             const { id, offset } = req.query
 
-            cron.schedule('*/10 * * * *', async () => {
+            cron.schedule('*/2 * * * *', async () => {
 
                 try {
                     const actionTemp = await model.actionTemp()
@@ -20,7 +20,8 @@ module.exports = {
                     const time = `${lastHour > 0 ? lastHour : lastHour + 24}:${currMinutes} - ${currHours}:${currMinutes}`
 
                     for (let i = 0; i < actionTemp.length; i++) {
-
+                        console.log("a");
+                        
                         if (actionTemp[i].actions == 1) {
                             const added = await model.addActionResultRequest(time, actionTemp[i].app_ads_id, actionTemp[i].count)
 

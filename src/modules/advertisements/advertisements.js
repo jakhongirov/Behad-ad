@@ -1,4 +1,6 @@
 const model = require('./model');
+const path = require('path')
+const FS = require('../../lib/fs')
 
 module.exports = {
     GET: async (req, res) => {
@@ -133,9 +135,17 @@ module.exports = {
                 advertising_id
             } = req.body
 
+            const uploadMedia = req.file;
+            let image_name = "";
+            let image_url = "";
+
+            if (uploadMedia) {
+                image_name = uploadMedia.filename;
+                image_url = `https://ads.behad.uz/public/images/${uploadMedia.filename}`;
+            }
+
             const advertisement_pending_audince = await model.filterUsers(gender, max_age, min_age, phone_lang, interest, country, city)
-            
-            console.log(advertisement_pending_audince);
+
             if (action_price && advertisement_limit && advertisement_budget) {
                 const addAdvertisement = await model.addAdvertisement(
                     campaign_name,
@@ -159,6 +169,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -198,6 +210,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -237,6 +251,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -278,6 +294,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -318,6 +336,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -370,6 +390,23 @@ module.exports = {
                 advertising_id
             } = req.body
 
+            const uploadMedia = req.file;
+            let image_name = "";
+            let image_url = "";
+
+            const foundAd = await model.foundAd(campaign_id)
+            const deleteOldLogo = await new FS(path.resolve(__dirname, '..', '..', '..', 'public', 'images', `${foundAd?.advertisement_media_name}`))
+
+            if (uploadMedia) {
+                deleteOldLogo.delete()
+                image_name = uploadMedia.filename
+                image_url = `https://psychology.behad.uz/public/images/${uploadMedia.filename}`
+            } else {
+                image_url = foundAd?.advertisement_media_link
+                image_name = foundAd?.advertisement_media_name
+            }
+
+
             const advertisement_pending_audince = await model.filterUsers(gender, max_age, min_age, phone_lang, interest, country, city)
 
             if (action_price && advertisement_limit && advertisement_budget) {
@@ -396,6 +433,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -436,6 +475,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -476,6 +517,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -518,6 +561,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -559,6 +604,8 @@ module.exports = {
                     advertisement_type,
                     advertisement_click_link,
                     advertisement_media_type,
+                    image_name,
+                    image_url,
                     advertising_id
                 )
 
@@ -587,9 +634,12 @@ module.exports = {
     DELETE: async (req, res) => {
         try {
             const { campaign_id } = req.body
+            const foundAd = await model.foundAd(campaign_id)
+            const deleteOldLogo = await new FS(path.resolve(__dirname, '..', '..', '..', 'public', 'images', `${foundAd?.advertisement_media_name}`))
             const deleteAdvertisement = await model.deleteAdvertisement(campaign_id)
 
             if (deleteAdvertisement) {
+                deleteOldLogo.delete()
                 return res.json({
                     status: 200,
                     message: "Success"

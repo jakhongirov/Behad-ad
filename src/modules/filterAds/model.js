@@ -67,6 +67,7 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
         FROM
             advertisements
         WHERE
+            advertisement_active = true and
             advertisement_type = '${type}' and
             ( gender ilike '%${who}%' or gender = 'all' ) and 
             ( max_age >= ${age} or ${age} >= min_age ) and

@@ -38,11 +38,13 @@ CREATE TABLE advertisements (
     type_of_campaign text not null,
     advertisement_title text not null,
     advertisement_description text not null,
-    advertisement_link text not null,
+    advertisement_media_link text,
+    advertisement_media_name text,
+    advertisement_link text,
     advertisement_click_link text not null,
     advertisement_limit int DEFAULT 100000,
     advertisement_budget int not null,
-    action_price float not null,
+    action_price numeric(10,2) not null,
     click json [],
     view json [],
     full_view json [],
@@ -61,6 +63,7 @@ CREATE TABLE advertisements (
     advertisement_type text not null,
     advertisement_media_type text not null,
     advertising_id int not null REFERENCES users_ads(user_id) ON DELETE CASCADE,
+    advertisement_active BOOLEAN DEFAULT true,
     advertisement_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -70,7 +73,7 @@ CREATE TABLE action_temp (
     app_ads_id text not null,
     campaign_id int not null REFERENCES advertisements(campaign_id) ON DELETE CASCADE,
     actions int not null,
-    action_price float not null,
+    action_price numeric(10,2) not null,
     user_id int not null REFERENCES users(user_id) ON DELETE CASCADE,
     action_temp_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
@@ -83,7 +86,7 @@ CREATE TABLE action_result (
     views_count int DEFAULT 0,
     clicks_count int DEFAULT 0,
     full_views_count int DEFAULT 0,
-    action_earning float DEFAULT 0,
+    action_earning numeric(10,2) DEFAULT 0,
     user_id int [],
     action_result_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
@@ -94,7 +97,7 @@ CREATE TABLE action_result_campaign (
     views_count int DEFAULT 0,
     clicks_count int DEFAULT 0,
     full_views_count int DEFAULT 0,
-    action_earning float DEFAULT 0,
+    action_earning numeric(10,2) DEFAULT 0,
     campaign_id int not null REFERENCES advertisements(campaign_id) ON DELETE CASCADE,
     user_id int [],
     action_result_create_date timestamptz DEFAULT CURRENT_TIMESTAMP

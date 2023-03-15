@@ -43,6 +43,8 @@ const ADD_ADVERTISEMENT = `
             advertisement_type,
             advertisement_click_link,
             advertisement_media_type,
+            advertisement_media_name,
+            advertisement_media_link,
             advertising_id
         )
     VALUES (
@@ -67,7 +69,9 @@ const ADD_ADVERTISEMENT = `
             $19,
             $20,
             $21,
-            $22
+            $22,
+            $23,
+            $24
     ) RETURNING *;
 `;
 
@@ -91,12 +95,14 @@ const UPDATE_ADVERTISEMENT = `
         interest = $15,
         phone_lang = $16,
         advertisement_pending_audince = $17,
-        advertisement_category = $19,
-        click_per_user = $20,
-        advertisement_type = $21,
-        advertisement_click_link = $22,
-        advertisement_media_type = $23,
-        advertising_id = $24
+        advertisement_category = $18,
+        click_per_user = $19,
+        advertisement_type = $20,
+        advertisement_click_link = $21,
+        advertisement_media_type = $22,
+        advertisement_media_name = $23,
+        advertisement_media_link = $24,
+        advertising_id = $25
     WHERE
         campaign_id = $1
     RETURNING *;
@@ -117,6 +123,15 @@ const FOUND_USER = `
         users_ads
     WHERE 
         user_id = $1;
+`;
+
+const FOUND_AD = `
+    SELECT
+       *
+    FROM
+        advertisements
+    WHERE 
+        campaign_id = $1;
 `;
 
 const advertisementById = (campaign_id) => fetchALL(BY_ID, campaign_id)
@@ -205,6 +220,8 @@ const addAdvertisement = (
     advertisement_type,
     advertisement_click_link,
     advertisement_media_type,
+    image_name,
+    image_url,
     advertising_id
 ) => fetch(
     ADD_ADVERTISEMENT,
@@ -229,6 +246,8 @@ const addAdvertisement = (
     advertisement_type,
     advertisement_click_link,
     advertisement_media_type,
+    image_name,
+    image_url,
     advertising_id
 
 )
@@ -255,6 +274,8 @@ const updateAdvertisement = (
     advertisement_type,
     advertisement_click_link,
     advertisement_media_type,
+    image_name,
+    image_url,
     advertising_id
 ) => fetch(
     UPDATE_ADVERTISEMENT,
@@ -280,6 +301,8 @@ const updateAdvertisement = (
     advertisement_type,
     advertisement_click_link,
     advertisement_media_type,
+    image_name,
+    image_url,
     advertising_id
 )
 const deleteAdvertisement = (campaign_id) => fetch(DELETE_ADVERTISEMENT, campaign_id)
@@ -301,6 +324,7 @@ const filterUsers = (gender, max_age, min_age, phone_lang, interest, country, ci
 
     return fetch(FILTER_USER_COUNT)
 }
+const foundAd = (campaign_id) => fetch(FOUND_AD, campaign_id)
 
 module.exports = {
     advertisementById,
@@ -313,5 +337,6 @@ module.exports = {
     updateAdvertisement,
     deleteAdvertisement,
     foundUser,
-    filterUsers
+    filterUsers,
+    foundAd
 }
