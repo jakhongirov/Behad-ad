@@ -400,7 +400,7 @@ module.exports = {
             if (uploadPhoto) {
                 deleteOldLogo.delete()
                 image_name = uploadPhoto.filename
-                image_url = `https://psychology.behad.uz/public/images/${uploadPhoto.filename}`
+                image_url = `https://ads.behad.uz/public/images/${uploadPhoto.filename}`
             } else {
                 image_url = foundAd?.advertisement_media_link
                 image_name = foundAd?.advertisement_media_name
