@@ -135,13 +135,14 @@ module.exports = {
                 advertising_id
             } = req.body
 
-            const uploadMedia = req.file;
+            const uploadPhoto = req.file;
+            console.log(uploadPhoto);
             let image_name = "";
             let image_url = "";
 
-            if (uploadMedia) {
-                image_name = uploadMedia.filename;
-                image_url = `https://ads.behad.uz/public/images/${uploadMedia.filename}`;
+            if (uploadPhoto) {
+                image_name = uploadPhoto.filename;
+                image_url = `https://ads.behad.uz/public/images/${uploadPhoto.filename}`;
             }
 
             const advertisement_pending_audince = await model.filterUsers(gender, max_age, min_age, phone_lang, interest, country, city)
@@ -390,17 +391,17 @@ module.exports = {
                 advertising_id
             } = req.body
 
-            const uploadMedia = req.file;
+            const uploadPhoto = req.file;
             let image_name = "";
             let image_url = "";
 
             const foundAd = await model.foundAd(campaign_id)
             const deleteOldLogo = await new FS(path.resolve(__dirname, '..', '..', '..', 'public', 'images', `${foundAd?.advertisement_media_name}`))
 
-            if (uploadMedia) {
+            if (uploadPhoto) {
                 deleteOldLogo.delete()
-                image_name = uploadMedia.filename
-                image_url = `https://psychology.behad.uz/public/images/${uploadMedia.filename}`
+                image_name = uploadPhoto.filename
+                image_url = `https://psychology.behad.uz/public/images/${uploadPhoto.filename}`
             } else {
                 image_url = foundAd?.advertisement_media_link
                 image_name = foundAd?.advertisement_media_name
