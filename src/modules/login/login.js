@@ -19,7 +19,8 @@ module.exports = {
                     return res.json({
                         status: 200,
                         message: "Success",
-                        data: token
+                        data: addUser,
+                        token: token
                     })
                 } else {
                     return res.json({
@@ -57,7 +58,8 @@ module.exports = {
                     return res.json({
                         status: 200,
                         message: "Success",
-                        data: token
+                        data: foundUser,
+                        token: token
                     })
                 } else {
                     return res.json({
