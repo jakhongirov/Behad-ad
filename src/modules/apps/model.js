@@ -140,20 +140,20 @@ const appsByName = (appName, offset) => {
     return fetchALL(APPS_BY_NAME)
 };
 const appsByUserId = (userId, offset) => {
-    const APPS_BY_NAME = `
+    const APPS_BY_USER_ID = `
         SELECT
             *, to_char(app_create_date at time zone 'Asia/Tashkent', 'HH24:MM/MM.DD.YYYY')
         FROM 
             apps_side
         WHERE
-            developer_id = ${userId}
+            developer_id = ${Number(userId)}
         ORDER BY    
             app_id DESC
         OFFSET ${offset}
         LIMIT 50;
-    `;
+    `;                      
 
-    return fetchALL(APPS_BY_NAME)
+    return fetchALL(APPS_BY_USER_ID)
 };
 const addApp = (userId, appName, app_link, banner_id, inters_id, rewarded_id, native_banner_id, image, image_name) => fetch(ADD_APP, userId, appName, app_link, banner_id, inters_id, rewarded_id, native_banner_id, image, image_name)
 const updateApp = (app_id, userId, appName, app_link, banner_id, inters_id, rewarded_id, native_banner_id, image_url, image_name) => fetch(UPDATE_APP, app_id, userId, appName, app_link, banner_id, inters_id, rewarded_id, native_banner_id, image_url, image_name)

@@ -8,7 +8,7 @@ module.exports = {
             const { appId, userId, appName, appCategory, offset } = req.query
 
             if (userId && offset) {
-                const appsByUserId = model.appsByUserId(userId, offset)
+                const appsByUserId = await model.appsByUserId(userId, offset)
 
                 if (appsByUserId) {
                     return res.json({
