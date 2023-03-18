@@ -11,12 +11,7 @@ const FOUND_USER = `
 
 const CHOOSE_ALL = `
     SELECT
-        campaign_id,
-        advertisement_media_type,
-        advertisement_link,
-        advertisement_media_link,
-        advertisement_title,
-        advertisement_description
+        *
     FROM
         advertisements
     WHERE  
@@ -58,16 +53,21 @@ const FOUND_APP = `
              $1 = ANY (native_banner_id);
 `;
 
+const UPDATE_STATUS_AD =  `
+    UPDATE 
+        advertisements
+    SET
+        advertisement_active = false
+    WHERE
+        campaign_id =  $1
+    RETURNING *;
+`;
+
 const foundUser = (deviceId) => fetch(FOUND_USER, deviceId)
 const foundAd = (age, who, country, city, phone_lang, type) => {
     const FOUND_AD = `
-        SELECT
-            campaign_id,
-            advertisement_media_type,
-            advertisement_link,
-            advertisement_media_link,
-            advertisement_title,
-            advertisement_description
+        SELECT 
+            *
         FROM
             advertisements
         WHERE
@@ -77,7 +77,9 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
             ( max_age >= ${age} or ${age} >= min_age ) and
             ( country ilike '%${country}%' or country = 'all' ) and
             ( city ilike '%${city}%' or city = 'all' ) and
-            (  phone_lang ilike '%${phone_lang}%' or phone_lang = 'all' );
+            (  phone_lang ilike '%${phone_lang}%' or phone_lang = 'all' )
+        ORDER BY
+            action_price;
     `;
 
     return fetch(FOUND_AD)
@@ -85,11 +87,13 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
 const chooseAllAd = (type) => fetch(CHOOSE_ALL, type)
 const addAction = (app_id, adId, campaign_id, user_id) => fetch(ADD_ACTION_TEMP, app_id, adId, campaign_id, user_id)
 const foundApp = (adId) => fetch(FOUND_APP, adId)
+const updateStatusAd = (campaign_id) => fetch(UPDATE_STATUS_AD, campaign_id)
 
 module.exports = {
     foundUser,
     foundAd,
     chooseAllAd,
     addAction,
-    foundApp
+    foundApp,
+    updateStatusAd
 }
