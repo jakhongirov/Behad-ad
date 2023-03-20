@@ -13,8 +13,15 @@ const ALL_APPS = `
 const BY_ID = `
     SELECT
         *, to_char(app_create_date at time zone 'Asia/Tashkent', 'HH24:MM/MM.DD.YYYY')
-    FROM
-        apps_side
+    FROM 
+        apps_side a
+    INNER JOIN
+        action_result b
+    ON
+        b.app_ads_id = any (a.banner_id) or
+        b.app_ads_id = any (a.inters_id) or
+        b.app_ads_id = any (a.rewarded_id) or
+        b.app_ads_id = any (a.native_banner_id)
     WHERE
         app_id = $1;
 `;
@@ -92,7 +99,7 @@ const FOUND_USER = `
 `;
 
 const allApps = () => fetchALL(ALL_APPS);
-const appsById = (appId) => fetch(BY_ID, appId)
+const appsById = (appId) => fetchALL(BY_ID, appId)
 const appsByOffset = (offset) => {
     const APPS = `
         SELECT
@@ -144,7 +151,11 @@ const appsByUserId = (userId, offset) => {
         SELECT
             *, to_char(app_create_date at time zone 'Asia/Tashkent', 'HH24:MM/MM.DD.YYYY')
         FROM 
-            apps_side
+            apps_side a
+        INNER JOIN
+            action_result b
+        ON
+            a.app_id = b.app_id
         WHERE
             developer_id = ${Number(userId)}
         ORDER BY    
