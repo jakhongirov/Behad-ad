@@ -120,7 +120,7 @@ module.exports = {
 
                 const addApp = await model.addApp(userId, appName, app_link, banner_id, inters_id, rewarded_id, native_banner_id, image_url, image_name)
 
-                if (addApp) { 
+                if (addApp) {
                     return res.json({
                         status: 200,
                         message: "Success"
@@ -254,7 +254,25 @@ module.exports = {
             }
 
         } catch (error) {
+            console.log(error)
+            res.json({
+                status: 500,
+                message: "Internal Server Error",
+            })
+        }
+    },
 
+    GET_RESULT: async (req, res) => {
+        try {
+            const { appId } = req.body
+            const result = await model
+
+        } catch (error) {
+            console.log(error)
+            res.json({
+                status: 500,
+                message: "Internal Server Error",
+            })
         }
     }
 }
