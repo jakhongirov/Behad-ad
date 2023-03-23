@@ -160,11 +160,7 @@ const appsByUserId = (userId, offset) => {
         SELECT
             *, to_char(app_create_date at time zone 'Asia/Tashkent', 'HH24:MM/MM.DD.YYYY')
         FROM 
-            apps_side a
-        INNER JOIN
-            action_result b
-        ON
-            a.app_id = b.app_id
+            apps_side
         WHERE
             developer_id = ${Number(userId)}
         ORDER BY    
