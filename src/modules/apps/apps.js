@@ -23,7 +23,7 @@ module.exports = {
                     })
                 }
             } else if (appName && offset) {
-                const appsByName = model.appsByName(appName, offset)
+                const appsByName = await model.appsByName(appName, offset)
 
                 if (appsByName) {
                     return res.json({
@@ -38,7 +38,7 @@ module.exports = {
                     })
                 }
             } else if (appCategory && offset) {
-                const appsByCatrgory = model.appsByCatrgory(appCategory, offset)
+                const appsByCatrgory = await model.appsByCatrgory(appCategory, offset)
 
                 if (appsByCatrgory) {
                     return res.json({
@@ -53,7 +53,7 @@ module.exports = {
                     })
                 }
             } else if (appId) {
-                const appsById = model.appsById(appId)
+                const appsById = await model.appsById(appId)
 
                 if (appsById) {
                     return res.json({
@@ -68,7 +68,7 @@ module.exports = {
                     })
                 }
             } else if (offset) {
-                const appsByOffset = model.appsByOffset(offset)
+                const appsByOffset = await model.appsByOffset(offset)
 
                 if (appsByOffset) {
                     return res.json({
@@ -151,7 +151,7 @@ module.exports = {
         try {
             const { app_id, userId, appName, app_link, banner_id, inters_id, rewarded_id, native_banner_id } = req.body
             const uploadPhoto = req.file;
-            const appsById = model.appsById(app_id)
+            const appsById = await model.appsById(app_id)
             let image_name = "";
             let image_url = "";
 
@@ -200,7 +200,7 @@ module.exports = {
     PUT_STATUS: async (req, res) => {
         try {
             const { app_id, category_id, status } = req.body
-            const appsById = model.appsById(app_id)
+            const appsById = await model.appsById(app_id)
 
             if (appsById) {
                 const updateStatus = await model.updateStatus(app_id, category_id, status)
@@ -236,7 +236,7 @@ module.exports = {
     DELETE_APP: async (req, res) => {
         try {
             const { app_id } = req.body
-            const appsById = model.appsById(app_id)
+            const appsById = await model.appsById(app_id)
             const deleteOldLogo = await new FS(path.resolve(__dirname, '..', '..', '..', 'public', 'images', `${appsById?.app_image_name}`))
             const deleteApp = await model.deleteApp(app_id)
 
