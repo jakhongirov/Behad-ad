@@ -265,7 +265,20 @@ module.exports = {
     GET_RESULT: async (req, res) => {
         try {
             const { appId } = req.body
-            const result = await model
+            const result = await model.getAppResult(appId)
+
+            if (result) {
+                return res.json({
+                    status: 200,
+                    message: "Success",
+                    data: result
+                })
+            } else {
+                return res.json({
+                    status: 404,
+                    message: "Not found"
+                })
+            }
 
         } catch (error) {
             console.log(error)

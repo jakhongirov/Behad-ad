@@ -32,7 +32,7 @@ const BY_ID_EARNING = `
         b.app_ads_id = any (a.rewarded_id) or
         b.app_ads_id = any (a.native_banner_id)
     WHERE
-        app_id = $1;
+        a.app_id = $1;
 `;
 
 const ADD_APP = `

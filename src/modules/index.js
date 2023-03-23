@@ -25,6 +25,7 @@ router
     .delete('/delete', categories.DELETE)
 
     .get('/apps', apps.GET_APP_SIDE)
+    .get('/appResult', apps.GET_RESULT)
     .post('/addApp', FileUpload.single('photo'), apps.POST)
     .put('/editApp', FileUpload.single('photo'), apps.PUT)
     .put('/editAppStatus', apps.PUT_STATUS)
