@@ -29,7 +29,7 @@ router
     .post('/addApp', FileUpload.single('photo'), apps.POST)
     .put('/editApp', FileUpload.single('photo'), apps.PUT)
     .put('/editAppStatus', apps.PUT_STATUS)
-    .delete('deleteApp', apps.DELETE_APP)
+    .delete('/deleteApp', apps.DELETE_APP)
 
     .get('/advertisements', advertisement.GET)
     .post('/addAdvertisement', FileUpload.single('photo'), advertisement.POST)
