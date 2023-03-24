@@ -45,7 +45,7 @@ const ADD_ADVERTISEMENT = `
             advertisement_media_type,
             advertisement_media_name,
             advertisement_media_link,
-            advertisement_acton_text,
+            advertisement_action_text,
             advertising_id
         )
     VALUES (
@@ -104,7 +104,7 @@ const UPDATE_ADVERTISEMENT = `
         advertisement_media_type = $22,
         advertisement_media_name = $23,
         advertisement_media_link = $24,
-        advertisement_acton_text = $25,
+        advertisement_action_text = $25,
         advertising_id = $26
     WHERE
         campaign_id = $1
@@ -225,7 +225,7 @@ const addAdvertisement = (
     advertisement_media_type,
     image_name,
     image_url,
-    advertisement_acton_text,
+    advertisement_action_text,
     advertising_id
 ) => fetch(
     ADD_ADVERTISEMENT,
@@ -252,7 +252,7 @@ const addAdvertisement = (
     advertisement_media_type,
     image_name,
     image_url,
-    advertisement_acton_text,
+    advertisement_action_text,
     advertising_id
 
 )
@@ -281,7 +281,7 @@ const updateAdvertisement = (
     advertisement_media_type,
     image_name,
     image_url,
-    advertisement_acton_text,
+    advertisement_action_text,
     advertising_id
 ) => fetch(
     UPDATE_ADVERTISEMENT,
@@ -309,7 +309,7 @@ const updateAdvertisement = (
     advertisement_media_type,
     image_name,
     image_url,
-    advertisement_acton_text,
+    advertisement_action_text,
     advertising_id
 )
 const deleteAdvertisement = (campaign_id) => fetch(DELETE_ADVERTISEMENT, campaign_id)

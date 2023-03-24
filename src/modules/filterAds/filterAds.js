@@ -31,7 +31,8 @@ module.exports = {
                                     advertisement_link: foundAd.advertisement_link,
                                     advertisement_media_link: foundAd.advertisement_media_link,
                                     advertisement_title: foundAd.advertisement_title,
-                                    advertisement_description: foundAd.advertisement_description
+                                    advertisement_description: foundAd.advertisement_description,
+                                    advertisement_action_text: foundAd.advertisement_action_text
                                 }
                             })
                         } else {
@@ -61,7 +62,8 @@ module.exports = {
                                     advertisement_link: foundAd.advertisement_link,
                                     advertisement_media_link: foundAd.advertisement_media_link,
                                     advertisement_title: foundAd.advertisement_title,
-                                    advertisement_description: foundAd.advertisement_description
+                                    advertisement_description: foundAd.advertisement_description,
+                                    advertisement_action_text: foundAd.advertisement_action_text
                                 }
                             })
                         } else {
@@ -91,7 +93,8 @@ module.exports = {
                                     advertisement_link: foundAd.advertisement_link,
                                     advertisement_media_link: foundAd.advertisement_media_link,
                                     advertisement_title: foundAd.advertisement_title,
-                                    advertisement_description: foundAd.advertisement_description
+                                    advertisement_description: foundAd.advertisement_description,
+                                    advertisement_action_text: foundAd.advertisement_action_text
                                 }
                             })
                         } else {
@@ -125,7 +128,8 @@ module.exports = {
                                     advertisement_link: chooseAllAd.advertisement_link,
                                     advertisement_media_link: chooseAllAd.advertisement_media_link,
                                     advertisement_title: chooseAllAd.advertisement_title,
-                                    advertisement_description: chooseAllAd.advertisement_description
+                                    advertisement_description: chooseAllAd.advertisement_description,
+                                    advertisement_action_text: chooseAllAd.advertisement_action_text
                                 }
                             })
                         } else {
@@ -155,7 +159,8 @@ module.exports = {
                                     advertisement_link: chooseAllAd.advertisement_link,
                                     advertisement_media_link: chooseAllAd.advertisement_media_link,
                                     advertisement_title: chooseAllAd.advertisement_title,
-                                    advertisement_description: chooseAllAd.advertisement_description
+                                    advertisement_description: chooseAllAd.advertisement_description,
+                                    advertisement_action_text: chooseAllAd.advertisement_action_text
                                 }
                             })
                         } else {
@@ -185,7 +190,8 @@ module.exports = {
                                     advertisement_link: chooseAllAd.advertisement_link,
                                     advertisement_media_link: chooseAllAd.advertisement_media_link,
                                     advertisement_title: chooseAllAd.advertisement_title,
-                                    advertisement_description: chooseAllAd.advertisement_description
+                                    advertisement_description: chooseAllAd.advertisement_description,
+                                    advertisement_action_text: chooseAllAd.advertisement_action_text
                                 }
                             })
                         } else {
@@ -220,7 +226,8 @@ module.exports = {
                                 advertisement_link: chooseAllAd.advertisement_link,
                                 advertisement_media_link: chooseAllAd.advertisement_media_link,
                                 advertisement_title: chooseAllAd.advertisement_title,
-                                advertisement_description: chooseAllAd.advertisement_description
+                                advertisement_description: chooseAllAd.advertisement_description,
+                                advertisement_action_text: chooseAllAd.advertisement_action_text
                             }
                         })
                     } else {
@@ -250,7 +257,8 @@ module.exports = {
                                 advertisement_link: chooseAllAd.advertisement_link,
                                 advertisement_media_link: chooseAllAd.advertisement_media_link,
                                 advertisement_title: chooseAllAd.advertisement_title,
-                                advertisement_description: chooseAllAd.advertisement_description
+                                advertisement_description: chooseAllAd.advertisement_description,
+                                advertisement_action_text: chooseAllAd.advertisement_action_text
                             }
                         })
                     } else {
@@ -280,7 +288,8 @@ module.exports = {
                                 advertisement_link: chooseAllAd.advertisement_link,
                                 advertisement_media_link: chooseAllAd.advertisement_media_link,
                                 advertisement_title: chooseAllAd.advertisement_title,
-                                advertisement_description: chooseAllAd.advertisement_description
+                                advertisement_description: chooseAllAd.advertisement_description,
+                                advertisement_action_text: chooseAllAd.advertisement_action_text
                             }
                         })
                     } else {

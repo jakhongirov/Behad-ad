@@ -132,7 +132,7 @@ module.exports = {
                 advertisement_type,
                 advertisement_click_link,
                 advertisement_media_type,
-                advertisement_acton_text,
+                advertisement_action_text,
                 advertising_id
             } = req.body
 
@@ -172,7 +172,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -214,7 +214,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -256,7 +256,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -300,7 +300,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -343,7 +343,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -393,7 +393,7 @@ module.exports = {
                 advertisement_type,
                 advertisement_click_link,
                 advertisement_media_type,
-                advertisement_acton_text,
+                advertisement_action_text,
                 advertising_id
             } = req.body
 
@@ -442,7 +442,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -485,7 +485,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -528,7 +528,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -573,7 +573,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 
@@ -617,7 +617,7 @@ module.exports = {
                     advertisement_media_type,
                     image_name,
                     image_url,
-                    advertisement_acton_text,
+                    advertisement_action_text,
                     advertising_id
                 )
 

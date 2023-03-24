@@ -64,7 +64,7 @@ CREATE TABLE advertisements (
     advertisement_media_type text not null,
     advertising_id int not null REFERENCES users_ads(user_id) ON DELETE CASCADE,
     advertisement_active BOOLEAN DEFAULT true,
-    advertisement_acton_text text,
+    advertisement_action_text text,
     advertisement_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
