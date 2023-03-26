@@ -34,6 +34,7 @@ router
     .get('/advertisements', advertisement.GET)
     .post('/addAdvertisement', FileUpload.single('photo'), advertisement.POST)
     .put('./editAdvertisement', FileUpload.single('photo'), advertisement.PUT)
+    .put('/editAdStatus', advertisement.PUT_STATUS)
     .delete('/deleteAdvertisement', advertisement.DELETE)
 
     .get('/action', action.GET)

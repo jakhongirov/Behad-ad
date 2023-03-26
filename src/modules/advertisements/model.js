@@ -119,6 +119,16 @@ const DELETE_ADVERTISEMENT = `
     RETURNING *;
 `;
 
+const UPDATE_STATUS_AD = `
+    UPDATE
+        advertisements
+    SET
+        advertisement_active = $2
+    WHERE
+        campaign_id = $1
+    RETURNING *;
+`;
+
 const FOUND_USER = `
     SELECT
        user_balance
@@ -146,6 +156,22 @@ const advertisementByName = (campaign_name, offset) => {
             advertisements
         WHERE
             campaign_name ilike '%${campaign_name}%'
+        ORDER BY
+            campaign_id DESC
+        OFFSET ${offset}
+        LIMIT 50;
+    `;
+
+    return fetchALL(BY_NAME)
+};
+const advertisementAdvertisingId = (advertisingId, offset) => {
+    const BY_NAME = `
+        SELECT
+            *, to_char(advertisement_create_date at time zone 'Asia/Tashkent', 'HH24:MM/MM.DD.YYYY')
+        FROM
+            advertisements
+        WHERE
+            advertising_id = ${advertisingId}
         ORDER BY
             campaign_id DESC
         OFFSET ${offset}
@@ -332,10 +358,12 @@ const filterUsers = (gender, max_age, min_age, phone_lang, interest, country, ci
     return fetch(FILTER_USER_COUNT)
 }
 const foundAd = (campaign_id) => fetch(FOUND_AD, campaign_id)
+const updateStatus = (campaign_id, status) => fetch(UPDATE_STATUS_AD, campaign_id, status)
 
 module.exports = {
     advertisementById,
     advertisementByName,
+    advertisementAdvertisingId,
     advertisementByTitle,
     advertisementByTypeOfCampaign,
     advertisementByOffset,
@@ -345,5 +373,6 @@ module.exports = {
     deleteAdvertisement,
     foundUser,
     filterUsers,
-    foundAd
+    foundAd,
+    updateStatus
 }

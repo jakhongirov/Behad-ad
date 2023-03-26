@@ -5,7 +5,7 @@ const FS = require('../../lib/fs')
 module.exports = {
     GET: async (req, res) => {
         try {
-            const { campaign_id, campaign_name, advertisement_title, type_of_campaign, offset } = req.query
+            const { campaign_id, campaign_name, advertisement_title, type_of_campaign, offset, advertisingId } = req.query
 
             if (campaign_id) {
                 const advertisementById = await model.advertisementById(campaign_id)
@@ -23,6 +23,21 @@ module.exports = {
                     })
                 }
 
+            } else if (advertisingId && offset) {
+                const advertisementAdvertisingId = await model.advertisementAdvertisingId(advertisingId, offset)
+
+                if (advertisementAdvertisingId) {
+                    return res.json({
+                        status: 200,
+                        message: "Success",
+                        data: advertisementAdvertisingId
+                    })
+                } else {
+                    return res.json({
+                        status: 404,
+                        message: "Not found",
+                    })
+                }
             } else if (campaign_name && offset) {
                 const advertisementByName = await model.advertisementByName(campaign_name, offset)
 
@@ -660,6 +675,41 @@ module.exports = {
                 return res.json({
                     status: 400,
                     message: "Bad request"
+                })
+            }
+
+        } catch (error) {
+            console.log(error)
+            res.json({
+                status: 500,
+                message: "Internal Server Error",
+            })
+        }
+    },
+
+    PUT_STATUS: async (req, res) => {
+        try {
+            const {campaign_id, status} = req.body
+            const foundAd = await model.foundAd(campaign_id)
+
+            if(foundAd) {
+                const updateStatus = await model.updateStatus(campaign_id, status)
+
+                if(updateStatus) {
+                    return res.json({
+                        status: 200,
+                        message: "Success"
+                    })
+                } else {
+                    return res.json({
+                        status: 400,
+                        message: "Bad request"
+                    })
+                }
+            } else {
+                return res.json({
+                    status: 404,
+                    message: "Not found"
                 })
             }
 
