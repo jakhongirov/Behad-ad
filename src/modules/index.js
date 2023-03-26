@@ -22,7 +22,7 @@ router
     .get('/categories', categories.GET)
     .post('/addCategory', categories.POST)
     .put('/editCategory', categories.PUT)
-    .delete('/delete', categories.DELETE)
+    .delete('/deleteCategory', categories.DELETE)
 
     .get('/apps', apps.GET_APP_SIDE)
     .get('/appResult', apps.GET_RESULT)
