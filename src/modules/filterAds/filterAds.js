@@ -21,7 +21,7 @@ module.exports = {
                         }
 
                         if (result < foundAd.advertisement_limit) {
-                            await model.addAction(app?.app_id, adId, foundAd?.campaign_id, foundUser.user_id)
+                            await model.addAction(app?.app_id, adId, foundAd?.campaign_id, deviceId)
                             return res.json({
                                 status: 200,
                                 message: "Success",
@@ -51,7 +51,7 @@ module.exports = {
                         }
 
                         if (result < foundAd.advertisement_limit) {
-                            await model.addAction(app?.app_id, adId, foundAd?.campaign_id, foundUser.user_id)
+                            await model.addAction(app?.app_id, adId, foundAd?.campaign_id, deviceId)
                             return res.json({
                                 status: 200,
                                 message: "Success",
@@ -81,7 +81,7 @@ module.exports = {
                         }
 
                         if (result < foundAd.advertisement_limit) {
-                            await model.addAction(app?.app_id, adId, foundAd?.campaign_id, foundUser.user_id)
+                            await model.addAction(app?.app_id, adId, foundAd?.campaign_id, deviceId)
                             return res.json({
                                 status: 200,
                                 message: "Success",
@@ -115,7 +115,7 @@ module.exports = {
                         }
 
                         if (result < chooseAllAd.advertisement_limit) {
-                            await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, chooseAllAd.user_id)
+                            await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, deviceId)
                             return res.json({
                                 status: 200,
                                 message: "Success",
@@ -145,7 +145,7 @@ module.exports = {
                         }
 
                         if (result < chooseAllAd.advertisement_limit) {
-                            await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
+                            await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, deviceId)
                             return res.json({
                                 status: 200,
                                 message: "Success",
@@ -175,7 +175,7 @@ module.exports = {
                         }
 
                         if (result < chooseAllAd.advertisement_limit) {
-                            await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
+                            await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, deviceId)
                             return res.json({
                                 status: 200,
                                 message: "Success",
@@ -210,7 +210,7 @@ module.exports = {
                     }
 
                     if (result < chooseAllAd.advertisement_limit) {
-                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, chooseAllAd.user_id)
+                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, deviceId)
                         return res.json({
                             status: 200,
                             message: "Success",
@@ -240,7 +240,7 @@ module.exports = {
                     }
 
                     if (result < chooseAllAd.advertisement_limit) {
-                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
+                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, deviceId)
                         return res.json({
                             status: 200,
                             message: "Success",
@@ -270,7 +270,7 @@ module.exports = {
                     }
 
                     if (result < chooseAllAd.advertisement_limit) {
-                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, foundUser.user_id)
+                        await model.addAction(app?.app_id, adId, chooseAllAd?.campaign_id, deviceId)
                         return res.json({
                             status: 200,
                             message: "Success",

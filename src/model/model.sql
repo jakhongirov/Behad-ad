@@ -74,7 +74,7 @@ CREATE TABLE action_temp (
     campaign_id int not null REFERENCES advertisements(campaign_id) ON DELETE CASCADE,
     actions int not null,
     action_price numeric(10,2) not null,
-    user_id int not null REFERENCES users(user_id) ON DELETE CASCADE,
+    user_id text not null,
     action_temp_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -87,7 +87,7 @@ CREATE TABLE action_result (
     clicks_count int DEFAULT 0,
     full_views_count int DEFAULT 0,
     action_earning numeric(10,2) DEFAULT 0,
-    user_id int [],
+    user_id text [],
     action_result_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -99,6 +99,6 @@ CREATE TABLE action_result_campaign (
     full_views_count int DEFAULT 0,
     action_earning numeric(10,2) DEFAULT 0,
     campaign_id int not null REFERENCES advertisements(campaign_id) ON DELETE CASCADE,
-    user_id int [],
+    user_id text [],
     action_result_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );

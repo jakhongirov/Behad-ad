@@ -15,10 +15,7 @@ const CHOOSE_ALL = `
     FROM
         advertisements
     WHERE  
-        advertisement_type = $1 and
-        gender = 'all' and 
-        max_age = 100 and min_age = 0 and country = 'all' and city = 'all' and
-        interest = 'all' and phone_lang= 'all';
+        advertisement_type = $1 and advertisement_active = true;
 `;
 
 const ADD_ACTION_TEMP = `
