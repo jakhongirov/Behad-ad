@@ -38,7 +38,6 @@ CREATE TABLE advertisements (
     type_of_campaign text not null,
     advertisement_title text not null,
     advertisement_description text not null,
-    advertisement_media_link text,
     advertisement_media_name text,
     advertisement_link text,
     advertisement_click_link text not null,

@@ -29,7 +29,6 @@ module.exports = {
                                     campaign_id: foundAd.campaign_id,
                                     advertisement_media_type: foundAd.advertisement_media_type,
                                     advertisement_link: foundAd.advertisement_link,
-                                    advertisement_media_link: foundAd.advertisement_media_link,
                                     advertisement_title: foundAd.advertisement_title,
                                     advertisement_description: foundAd.advertisement_description,
                                     advertisement_action_text: foundAd.advertisement_action_text
@@ -60,7 +59,6 @@ module.exports = {
                                     campaign_id: foundAd.campaign_id,
                                     advertisement_media_type: foundAd.advertisement_media_type,
                                     advertisement_link: foundAd.advertisement_link,
-                                    advertisement_media_link: foundAd.advertisement_media_link,
                                     advertisement_title: foundAd.advertisement_title,
                                     advertisement_description: foundAd.advertisement_description,
                                     advertisement_action_text: foundAd.advertisement_action_text
@@ -91,7 +89,6 @@ module.exports = {
                                     campaign_id: foundAd.campaign_id,
                                     advertisement_media_type: foundAd.advertisement_media_type,
                                     advertisement_link: foundAd.advertisement_link,
-                                    advertisement_media_link: foundAd.advertisement_media_link,
                                     advertisement_title: foundAd.advertisement_title,
                                     advertisement_description: foundAd.advertisement_description,
                                     advertisement_action_text: foundAd.advertisement_action_text
@@ -126,7 +123,6 @@ module.exports = {
                                     campaign_id: chooseAllAd.campaign_id,
                                     advertisement_media_type: chooseAllAd.advertisement_media_type,
                                     advertisement_link: chooseAllAd.advertisement_link,
-                                    advertisement_media_link: chooseAllAd.advertisement_media_link,
                                     advertisement_title: chooseAllAd.advertisement_title,
                                     advertisement_description: chooseAllAd.advertisement_description,
                                     advertisement_action_text: chooseAllAd.advertisement_action_text
@@ -157,7 +153,6 @@ module.exports = {
                                     campaign_id: chooseAllAd.campaign_id,
                                     advertisement_media_type: chooseAllAd.advertisement_media_type,
                                     advertisement_link: chooseAllAd.advertisement_link,
-                                    advertisement_media_link: chooseAllAd.advertisement_media_link,
                                     advertisement_title: chooseAllAd.advertisement_title,
                                     advertisement_description: chooseAllAd.advertisement_description,
                                     advertisement_action_text: chooseAllAd.advertisement_action_text
@@ -188,7 +183,6 @@ module.exports = {
                                     campaign_id: chooseAllAd.campaign_id,
                                     advertisement_media_type: chooseAllAd.advertisement_media_type,
                                     advertisement_link: chooseAllAd.advertisement_link,
-                                    advertisement_media_link: chooseAllAd.advertisement_media_link,
                                     advertisement_title: chooseAllAd.advertisement_title,
                                     advertisement_description: chooseAllAd.advertisement_description,
                                     advertisement_action_text: chooseAllAd.advertisement_action_text
@@ -224,7 +218,6 @@ module.exports = {
                                 campaign_id: chooseAllAd.campaign_id,
                                 advertisement_media_type: chooseAllAd.advertisement_media_type,
                                 advertisement_link: chooseAllAd.advertisement_link,
-                                advertisement_media_link: chooseAllAd.advertisement_media_link,
                                 advertisement_title: chooseAllAd.advertisement_title,
                                 advertisement_description: chooseAllAd.advertisement_description,
                                 advertisement_action_text: chooseAllAd.advertisement_action_text
@@ -255,7 +248,6 @@ module.exports = {
                                 campaign_id: chooseAllAd.campaign_id,
                                 advertisement_media_type: chooseAllAd.advertisement_media_type,
                                 advertisement_link: chooseAllAd.advertisement_link,
-                                advertisement_media_link: chooseAllAd.advertisement_media_link,
                                 advertisement_title: chooseAllAd.advertisement_title,
                                 advertisement_description: chooseAllAd.advertisement_description,
                                 advertisement_action_text: chooseAllAd.advertisement_action_text
@@ -286,7 +278,6 @@ module.exports = {
                                 campaign_id: chooseAllAd.campaign_id,
                                 advertisement_media_type: chooseAllAd.advertisement_media_type,
                                 advertisement_link: chooseAllAd.advertisement_link,
-                                advertisement_media_link: chooseAllAd.advertisement_media_link,
                                 advertisement_title: chooseAllAd.advertisement_title,
                                 advertisement_description: chooseAllAd.advertisement_description,
                                 advertisement_action_text: chooseAllAd.advertisement_action_text

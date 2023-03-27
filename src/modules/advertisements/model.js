@@ -44,7 +44,6 @@ const ADD_ADVERTISEMENT = `
             advertisement_click_link,
             advertisement_media_type,
             advertisement_media_name,
-            advertisement_media_link,
             advertisement_action_text,
             advertising_id
         )
@@ -72,8 +71,7 @@ const ADD_ADVERTISEMENT = `
             $21,
             $22,
             $23,
-            $24,
-            $25
+            $24
     ) RETURNING *;
 `;
 
@@ -103,9 +101,8 @@ const UPDATE_ADVERTISEMENT = `
         advertisement_click_link = $21,
         advertisement_media_type = $22,
         advertisement_media_name = $23,
-        advertisement_media_link = $24,
-        advertisement_action_text = $25,
-        advertising_id = $26
+        advertisement_action_text = $24,
+        advertising_id = $25
     WHERE
         campaign_id = $1
     RETURNING *;
@@ -250,7 +247,6 @@ const addAdvertisement = (
     advertisement_click_link,
     advertisement_media_type,
     image_name,
-    image_url,
     advertisement_action_text,
     advertising_id
 ) => fetch(
@@ -277,7 +273,6 @@ const addAdvertisement = (
     advertisement_click_link,
     advertisement_media_type,
     image_name,
-    image_url,
     advertisement_action_text,
     advertising_id
 
@@ -306,7 +301,6 @@ const updateAdvertisement = (
     advertisement_click_link,
     advertisement_media_type,
     image_name,
-    image_url,
     advertisement_action_text,
     advertising_id
 ) => fetch(
@@ -334,7 +328,6 @@ const updateAdvertisement = (
     advertisement_click_link,
     advertisement_media_type,
     image_name,
-    image_url,
     advertisement_action_text,
     advertising_id
 )

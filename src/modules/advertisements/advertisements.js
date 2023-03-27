@@ -168,7 +168,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     advertisement_budget,
                     action_price,
@@ -186,7 +186,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -210,7 +209,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     advertisement_budget,
                     price,
@@ -228,7 +227,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -252,7 +250,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     user.user_balance,
                     action_price,
@@ -270,7 +268,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -296,7 +293,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     user.user_balance,
                     price,
@@ -314,7 +311,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -339,7 +335,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     limit,
                     user.user_balance,
                     action_price,
@@ -357,7 +353,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -438,7 +433,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     advertisement_budget,
                     action_price,
@@ -456,7 +451,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -481,7 +475,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     advertisement_budget,
                     price,
@@ -499,7 +493,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -524,7 +517,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     user.user_balance,
                     action_price,
@@ -542,7 +535,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -569,7 +561,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     advertisement_limit,
                     user.user_balance,
                     price,
@@ -587,7 +579,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
@@ -613,7 +604,7 @@ module.exports = {
                     type_of_campaign,
                     advertisement_title,
                     advertisement_description,
-                    advertisement_link,
+                    image_url ? image_url : advertisement_link,
                     limit,
                     user.user_balance,
                     action_price,
@@ -631,7 +622,6 @@ module.exports = {
                     advertisement_click_link,
                     advertisement_media_type,
                     image_name,
-                    image_url,
                     advertisement_action_text,
                     advertising_id
                 )
