@@ -77,8 +77,6 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
             ( country ilike '%${country}%' or country = 'all' ) and
             ( city ilike '%${city}%' or city = 'all' ) and
             (  phone_lang ilike '%${phone_lang}%' or phone_lang = 'all' )
-        ORDER BY
-            action_price
         ORDER BY random()
         LIMIT 1;
     `;
