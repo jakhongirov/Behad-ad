@@ -202,7 +202,7 @@ module.exports = {
                     })
                 }
             } else if (advertisement_limit && advertisement_budget) {
-                const price = Number((advertisement_budget / advertisement_limit).toFixed(1))
+                const price = Number((advertisement_budget / advertisement_limit).toFixed(2))
 
                 const addAdvertisement = await model.addAdvertisement(
                     campaign_name,
@@ -286,7 +286,7 @@ module.exports = {
 
             } else if (advertisement_limit) {
                 const user = await model.foundUser(advertising_id)
-                const price = Number((user.user_balance / advertisement_limit).toFixed(1))
+                const price = Number((user.user_balance / advertisement_limit).toFixed(2))
 
                 const addAdvertisement = await model.addAdvertisement(
                     campaign_name,
@@ -328,7 +328,7 @@ module.exports = {
                 }
             } else if (action_price) {
                 const user = await model.foundUser(advertising_id)
-                const limit = Number((user.user_balance / action_price).toFixed(1))
+                const limit = Number((user.user_balance / action_price).toFixed(2))
 
                 const addAdvertisement = await model.addAdvertisement(
                     campaign_name,
@@ -467,7 +467,7 @@ module.exports = {
                     })
                 }
             } else if (advertisement_limit && advertisement_budget) {
-                const price = Number((advertisement_budget / advertisement_limit).toFixed(1))
+                const price = Number((advertisement_budget / advertisement_limit).toFixed(2))
 
                 const updateAdvertisement = await model.updateAdvertisement(
                     campaign_id,
@@ -553,7 +553,7 @@ module.exports = {
 
             } else if (advertisement_limit) {
                 const user = await model.foundUser(advertising_id)
-                const price = Number((user.user_balance / advertisement_limit).toFixed(1))
+                const price = Number((user.user_balance / advertisement_limit).toFixed(2))
 
                 const updateAdvertisement = await model.updateAdvertisement(
                     campaign_id,
@@ -596,7 +596,7 @@ module.exports = {
                 }
             } else if (action_price) {
                 const user = await model.foundUser(advertising_id)
-                const limit = Number((user.user_balance / action_price).toFixed(1))
+                const limit = Number((user.user_balance / action_price).toFixed(2))
 
                 const updateAdvertisement = await model.updateAdvertisement(
                     campaign_id,
