@@ -15,7 +15,8 @@ const CHOOSE_ALL = `
     FROM
         advertisements
     WHERE  
-        advertisement_type = $1 and advertisement_active = true;
+        advertisement_type = $1 and advertisement_active = true
+    LIMIT 1 OFFSET ABS(RANDOM()) % MAX((SELECT COUNT(*) FROM advertisements), 1);
 `;
 
 const ADD_ACTION_TEMP = `
@@ -76,7 +77,8 @@ const foundAd = (age, who, country, city, phone_lang, type) => {
             ( city ilike '%${city}%' or city = 'all' ) and
             (  phone_lang ilike '%${phone_lang}%' or phone_lang = 'all' )
         ORDER BY
-            action_price;
+            action_price
+        LIMIT 1 OFFSET ABS(RANDOM()) % MAX((SELECT COUNT(*) FROM advertisements), 1);
     `;
 
     return fetch(FOUND_AD)
