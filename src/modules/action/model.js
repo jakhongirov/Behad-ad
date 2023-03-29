@@ -55,7 +55,7 @@ const ADD_REQUEST_COUNT = `
         action_result (
             action_result_time,
             app_ads_id,
-            request_count,
+            request_count
         )
     VALUES (     
         $1,
