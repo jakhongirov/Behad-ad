@@ -10,6 +10,7 @@ const apps = require('./apps/apps')
 const advertisement = require('./advertisements/advertisements')
 const action = require('./action/action')
 const filterAd = require('./filterAds/filterAds')
+const gplay = require('./gplay/gplay')
 
 router
     .post('/login', login.LOGIN)
@@ -40,6 +41,8 @@ router
     .get('/action', action.GET)
     .post('/addAction', action.POST)
 
-    .get('/filterAd', filterAd.GET);
+    .get('/filterAd', filterAd.GET)
+    
+    .get('/gplay', gplay.GET_GOOGLE_PLAY_APP);
 
 module.exports = router   
