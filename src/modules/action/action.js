@@ -20,7 +20,7 @@ module.exports = {
                     const time = `${lastHour > 0 ? lastHour : lastHour + 24}:${currMinutes} - ${currHours}:${currMinutes}`
 
                     for (let i = 0; i < actionTemp.length; i++) {
-                        
+
                         if (actionTemp[i].actions == 1) {
                             const added = await model.addActionResultRequest(time, actionTemp[i].app_ads_id, actionTemp[i].count)
 
@@ -100,6 +100,12 @@ module.exports = {
                         await model.updateAdCTR(actionResultCampaignCtr[i].campaign_id, ctr)
                     }
 
+                } catch (error) {
+                    console.log(error)
+                    res.json({
+                        status: 500,
+                        message: "Internal Server Error",
+                    })
                 } finally {
                     await model.clearActionTemp()
                 }

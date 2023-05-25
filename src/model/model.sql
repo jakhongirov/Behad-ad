@@ -1,8 +1,7 @@
 CREATE TABLE users_ads (
     user_id bigserial PRiMARY KEY,
-    user_first_name text not null,
-    user_last_name text not null,
-    user_email text not null,
+    user_full_name text not null,
+    user_company_name text not null,
     user_phone text not null,
     user_password text not null,
     user_balance int DEFAULT 0,
@@ -62,7 +61,7 @@ CREATE TABLE advertisements (
     advertisement_type text not null,
     advertisement_media_type text not null,
     advertising_id int not null REFERENCES users_ads(user_id) ON DELETE CASCADE,
-    advertisement_active BOOLEAN DEFAULT true,
+    advertisement_active BOOLEAN DEFAULT false,
     advertisement_action_text text,
     advertisement_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );

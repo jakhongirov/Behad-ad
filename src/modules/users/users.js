@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs')
 module.exports = {
     GET: async (req, res) => {
         try {
-            const { id, firstName, lastName, email, phone, offset, sort } = req.query
+            const { id, fullName, companyName, phone, offset, sort } = req.query
 
             if (id) {
                 const userById = await model.userById(id)
@@ -21,14 +21,14 @@ module.exports = {
                         message: "Not found"
                     })
                 }
-            } else if (firstName && offset && sort) {
-                const userByFirstName = await model.userByFirstName(firstName, offset, sort)
+            } else if (fullName && offset && sort) {
+                const userByFullName = await model.userByFullName(fullName, offset, sort)
 
-                if (userByFirstName) {
+                if (userByFullName) {
                     return res.json({
                         status: 200,
                         message: "Success",
-                        data: userByFirstName
+                        data: userByFullName
                     })
                 } else {
                     return res.json({
@@ -36,29 +36,14 @@ module.exports = {
                         message: "Not found"
                     })
                 }
-            } else if (lastName && offset && sort) {
-                const userByLastName = await model.userByLastName(lastName, offset, sort)
+            } else if (companyName && offset && sort) {
+                const userByCompanyName = await model.userByCompanyName(companyName, offset, sort)
 
-                if (userByLastName) {
+                if (userByCompanyName) {
                     return res.json({
                         status: 200,
                         message: "Success",
-                        data: userByLastName
-                    })
-                } else {
-                    return res.json({
-                        status: 404,
-                        message: "Not found"
-                    })
-                }
-            } else if (email && offset && sort) {
-                const userByEmail = await model.userByEmail(email, offset, sort)
-
-                if (userByEmail) {
-                    return res.json({
-                        status: 200,
-                        message: "Success",
-                        data: userByEmail
+                        data: userByCompanyName
                     })
                 } else {
                     return res.json({
@@ -109,12 +94,12 @@ module.exports = {
 
     PUT: async (req, res) => {
         try {
-            const { id, first_name, last_name, email, phone, password } = req.body
+            const { id, full_name, company_name,  phone, password } = req.body
             const userById = await model.userById(id)
 
             if (userById) {
                 const pass_hash = password ? await bcryptjs.hash(password, 10) : userById[0]?.user_password
-                const updateUser = await model.updateUser(id, first_name, last_name, email, phone, pass_hash)
+                const updateUser = await model.updateUser(id, full_name, company_name,  phone, pass_hash)
 
                 if (updateUser) {
                     return res.json({

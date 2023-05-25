@@ -5,13 +5,13 @@ const bcryptjs = require('bcryptjs')
 module.exports = {
     REGISTER: async (req, res) => {
         try {
-            const { first_name, last_name, phone, email, password, role } = req.body
+            const { full_name, company_name, phone, password, role } = req.body
 
             const checkUser = await model.getUser(phone)
 
             if (!checkUser) {
                 const pass_hash = await bcryptjs.hash(password, 10)
-                const addUser = await model.registerUser(first_name, last_name, phone, email, pass_hash, role)
+                const addUser = await model.registerUser(full_name, company_name, phone, pass_hash, role)
 
                 if (addUser) {
                     const token = await new JWT({ id: addUser.user_id, name: addUser.user_role }).sign()
