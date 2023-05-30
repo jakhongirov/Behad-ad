@@ -6,7 +6,7 @@ module.exports = {
         try {
             const { id, offset } = req.query
 
-            cron.schedule('*/2 * * * *', async () => {
+            cron.schedule('0 */3 * * *', async () => {
 
                 try {
                     const actionTemp = await model.actionTemp()
