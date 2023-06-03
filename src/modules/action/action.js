@@ -123,7 +123,7 @@ module.exports = {
                     const day = currDate.getDate()
                     const currHours = currDate.getHours()
                     const currMinutes = currDate.getMinutes()
-                    const lastHour = Number(currHours) - 3
+                    const lastHour = Number(currHours) - 6
                     const time = `${day}.${month}  ${lastHour > 0 ? lastHour : lastHour + 24}:${currMinutes} - ${currHours}:${currMinutes}`
 
                     for (let i = 0; i < actionTemp.length; i++) {
