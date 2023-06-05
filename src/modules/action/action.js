@@ -132,7 +132,7 @@ module.exports = {
                             const added = await model.addActionResultRequest(time, actionTemp[i].app_ads_id, actionTemp[i].count)
 
                             if (added) {
-                                const actionTempPrice = await model.actionTempPriceCount()
+                                const actionTempPrice = await model.actionTempPriceCount(actionTemp[i].app_ads_id)
 
                                 for (let i = 0; i < actionTempPrice.length; i++) {
                                     await model.addCount(actionTempPrice[i].app_ads_id, actionTempPrice[i].sum)
@@ -154,7 +154,7 @@ module.exports = {
                             const added = await model.addActionResultCampaignView(time, actionTempCampaign[i].campaign_id, actionTempCampaign[i].count)
 
                             if (added) {
-                                const actionTempCampaignPrice = await model.actionTempCampaignPrice()
+                                const actionTempCampaignPrice = await model.actionTempCampaignPrice(actionTempCampaign[i].campaign_id)
 
                                 for (let i = 0; i < actionTempCampaignPrice.length; i++) {
                                     await model.addActionResultCampaignCount(actionTempCampaignPrice[i].campaign_id, actionTempCampaignPrice[i].sum)
@@ -200,7 +200,7 @@ module.exports = {
                     const actionResultCampaignCtr = await model.actionResultCampaignCtr()
 
                     for (let i = 0; i < actionResultCampaignCtr.length; i++) {
-                        const calcularedCTR = Number((actionResultCampaignCtr[i].click / actionResultCampaignCtr[i].views).toFixed(2))
+                        const calcularedCTR = Number(actionResultCampaignCtr[i].click / actionResultCampaignCtr[i].views)
                         let ctr = {}
 
                         ctr['time'] = time

@@ -26,7 +26,9 @@ const ACTIONS_TEMP_PRICE_COUNT = `
     SELECT 
         app_ads_id, sum(action_price)::float 
     FROM 
-        action_temp  
+        action_temp
+    WHERE
+       app_ads_id = $1
     group by 
         app_ads_id;
 `;
@@ -36,6 +38,8 @@ const ACTIONS_TEMP_CAMPAIGN_PRICE_COUNT = `
         campaign_id, sum(action_price)::float 
     FROM 
         action_temp  
+    WHERE
+        campaign_id = $1
     group by 
         campaign_id;
 `;
@@ -275,8 +279,8 @@ const ADD_ACTION_CAMPAIGN_USER_ID = `
 
 const actionTemp = () => fetchALL(ACTIONS_TEMP)
 const actionTempCampaign = () => fetchALL(ACTIONS_TEMP_CAMPAIGN)
-const actionTempPriceCount = () => fetchALL(ACTIONS_TEMP_PRICE_COUNT)
-const actionTempCampaignPrice = () => fetchALL(ACTIONS_TEMP_CAMPAIGN_PRICE_COUNT)
+const actionTempPriceCount = (id) => fetchALL(ACTIONS_TEMP_PRICE_COUNT, id)
+const actionTempCampaignPrice = (id) => fetchALL(ACTIONS_TEMP_CAMPAIGN_PRICE_COUNT, id)
 const addActionResultCampaignCount = (id, sum) => fetch(ADD_PRICE_CAMPAIGN_COUNT, id, sum)
 const addCount = (id, sum) => fetch(ADD_PRICE_COUNT, id, sum)
 const addActionResultRequest = (time, id, count) => fetch(ADD_REQUEST_COUNT, time, id, count)
