@@ -177,6 +177,7 @@ module.exports = {
                     }
 
                     const actionResultCampaign = await model.actionResultCampaign()
+ 
 
                     for (let i = 0; i < actionResultCampaign.length; i++) {
                         let view = {}
@@ -192,6 +193,7 @@ module.exports = {
                         fullView['time'] = time
                         fullView['count'] = actionResultCampaign[i].full_views
 
+                        
                         await model.updateAdsCount(actionResultCampaign[i].campaign_id, view, click, fullView)
                     }
 
