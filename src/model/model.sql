@@ -72,8 +72,8 @@ CREATE TABLE action_temp (
     app_ads_id text not null,
     campaign_id int not null REFERENCES advertisements(campaign_id) ON DELETE CASCADE,
     actions int not null,
-    action_price numeric(10,2) not null,
-    user_id text not null,
+    action_price DOUBLE PRECISION DEFAULT 0,
+    user_id text,
     action_temp_create_date timestamptz DEFAULT CURRENT_TIMESTAMP
 );
 
