@@ -6,9 +6,8 @@ module.exports = {
         try {
             const { id, offset } = req.query
 
-            schedule.scheduleJob('*/3 * * * *', async () => {
+            schedule.scheduleJob('0 */3 * * *', async () => {
                 try {
-                    console.log(1);
                     const actionTemp = await model.actionTemp()
                     const actionTempCampaign = await model.actionTempCampaign()
                     const actionTempUsers = await model.actionTempUsers()
