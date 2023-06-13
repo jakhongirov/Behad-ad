@@ -90,7 +90,7 @@ module.exports = {
 
                     const actionResultCampaignCtr = await model.actionResultCampaignCtr()
 
-                    for (let i = 0; i < actionResultCampaignCtr.length; i++) {
+                    for (let i = 0; i < actionResultCampaignCtr?.length; i++) {
                         const calcularedCTR = Number((actionResultCampaignCtr[i].click / actionResultCampaignCtr[i].views) * 100)
                         let ctr = {}
 
